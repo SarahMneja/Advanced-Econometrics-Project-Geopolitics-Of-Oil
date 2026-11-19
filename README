@@ -1,0 +1,86 @@
+# Advanced Econometrics Project: The Geopolitics of Oil
+## Macroeconomic Impact of the 2026 Gulf Crisis
+
+## 📌 Project Overview
+This repository contains the complete data pipeline, econometric analysis, and final report for the project **"The Geopolitics of Oil: Macroeconomic Impact of the 2026 Gulf Crisis."**
+
+The study examines the macroeconomic effects of the oil price shock resulting from the 2026 Gulf Crisis on the three largest Eurozone economies: **Germany, France, and Italy**. Using monthly panel data from January 2023 to June 2026 (N = 126 observations; 3 countries × 42 months), the project employs Pooled OLS, Fixed Effects (FE), and Random Effects (RE) models to estimate the impact of oil price changes on consumer price inflation (CPI) and industrial production (IPI).
+
+**Institution:** Tunis Business School (University of Tunis)  
+**Course:** Advanced Econometrics - BA 351  
+**Academic Year:** 2025 – 2026
+
+## 👥 Authors
+* Sarah Mneja
+* Hadil Bouattour
+* Hana Bouaziz
+* Sirine Zaltni
+* Maryem Ammar
+* **Supervisor:** Professor Naceur Khraief
+
+---
+
+## 📊 Dataset Structure (`panel_data_econometrics.csv`)
+The final dataset is structured in **long panel format** (country-month) and is perfectly balanced with 126 observations. 
+
+### Variables Included
+| Variable | Description | Source |
+| :--- | :--- | :--- |
+| `country` | DEU, FRA, ITA | — |
+| `date` | Monthly (YYYY-MM-DD) | — |
+| `cpi` / `ln_cpi` | Consumer Price Index (2015=100) | OECD |
+| `ipi` / `ln_ipi` | Industrial Production Index (2015=100) | IMF IFS |
+| `brent` | Crude Oil Price (USD/barrel) | FRED (`DCOILBRENTEU`) |
+| `neer` / `ln_neer` | Nominal Effective Exchange Rate | IMF IFS |
+| `policy_rate` | ECB Main Refinancing Rate (%) | FRED (`ECBMLFR`) |
+| `vix` | CBOE Volatility Index | FRED (`VIXCLS`) |
+| `oil_pct_change` | Monthly % change in Brent | Computed |
+| `post_crisis` | Dummy: 1 if date >= 2026-03-01 | Computed |
+
+### Data Pipeline (Phase 1)
+1. **Load & Merge:** 6 raw CSV files are merged sequentially via `(country, date)`.
+2. **Clean:** Missing values handled via linear interpolation and LOCF (Last Observation Carried Forward). Result: Zero missing values.
+3. **Transform:** Generated `ln_cpi`, `ln_ipi`, `ln_neer`.
+4. **Shock Variable:** Calculated `oil_pct_change = (Brent_t - Brent_t-1) / Brent_t-1 * 100`.
+5. **Crisis Dummy:** Created `post_crisis = 1` for dates from March 2026 onward.
+6. **Forecasting:** ARIMA models used to forecast missing April–June 2026 values for all variables.
+
+---
+
+## 🔬 Key Econometric Findings
+*(Full details available in the PDF Report included in the root directory)*
+
+### 1. Inflation Model (`ln_cpi`)
+*   **Oil Shock:** Not statistically significant ($p > 0.10$) in any specification.
+*   **Post-Crisis Dummy:** Highly significant in FE and RE models (+2.3 percentage point structural level shift).
+*   **Dominant Driver:** `ln_neer` is highly significant ($\beta = 0.790^{***}$). A 1% currency appreciation shifts CPI by approximately 0.79%.
+*   **Specification:** Hausman test fails to reject $H_0$ ($\chi^2 = 0.440, p = 0.994$), favoring **Random Effects**.
+
+### 2. Growth Model (`ln_ipi`)
+*   **Oil Shock:** Not statistically significant.
+*   **Dominant Driver:** `ln_neer` is negative and highly significant ($\beta = -0.701^{***}$), confirming Euro appreciation lowers industrial output via export competitiveness.
+*   **Specification:** Hausman test prefers **Fixed Effects** ($\chi^2 = 32.49, p < 0.001$).
+
+---
+
+## 📁 Repository Structure
+```text
+Advanced Econometrics Project Geopolitics Of Oil/
+│
+├── R/                              # R Scripts
+│   ├── analysis.r                  # Main econometric modeling and tests (Pooled OLS, FE, RE, Hausman)
+│   └── merge and arima forecast.r  # Data merging, cleaning, and ARIMA forecasting
+│
+├── variables/                      # Raw data files
+│   ├── DCOILBRENTEU.csv            # Brent Oil Prices (FRED)
+│   ├── VIXCLS.csv                  # VIX Volatility Index (FRED)
+│   ├── ECBMLFR.csv                 # ECB Policy Rates
+│   ├── neer.csv                    # Nominal Effective Exchange Rates (IMF IFS)
+│   ├── ipi.csv                     # Industrial Production Index (IMF IFS)
+│   ├── OECD_CPI_DE_FR_IT.csv       # CPI Data (OECD)
+│   └── links.txt                   # Data source documentation
+│
+├── panel_data_econometrics.csv     # FINAL cleaned and engineered panel dataset (N=126)
+├── Geopolitics_of_Oil_2026_Gulf_Crisis_Report.pdf # Final Research Paper
+├── README.md                       # Project documentation
+└── .gitignore                      # Ignored files (outputs, R history, etc.)
