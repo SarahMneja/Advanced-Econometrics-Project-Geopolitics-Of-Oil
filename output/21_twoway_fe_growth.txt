@@ -1,0 +1,24 @@
+Twoways effects Within Model
+
+Call:
+plm(formula = ln_ipi ~ oil_pct_change + ln_neer + policy_rate + 
+    vix + post_crisis, data = pdata, effect = "twoways", model = "within")
+
+Balanced Panel: n = 3, T = 42, N = 126
+
+Residuals:
+     Min.   1st Qu.    Median   3rd Qu.      Max. 
+-0.020424 -0.008481  0.000604  0.006121  0.033597 
+
+Coefficients:
+                  Estimate  Std. Error t-value  Pr(>|t|)    
+oil_pct_change -0.00084562  0.00051868 -1.6303     0.107    
+ln_neer        -5.13224299  0.70412224 -7.2889 1.967e-10 ***
+---
+Signif. codes:  0 ‘***’ 0.001 ‘**’ 0.01 ‘*’ 0.05 ‘.’ 0.1 ‘ ’ 1
+
+Total Sum of Squares:    0.025762
+Residual Sum of Squares: 0.013843
+R-Squared:      0.46268
+Adj. R-Squared: 0.16043
+F-statistic: 34.4433 on 2 and 80 DF, p-value: 1.6195e-11

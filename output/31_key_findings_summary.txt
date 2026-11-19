@@ -1,0 +1,23 @@
+=================================================================
+SUMMARY OF KEY FINDINGS
+=================================================================
+
+INFLATION MODEL (FE, ln_cpi):
+  Oil Shock coefficient (b1):     -0.000128 (p = 0.1991) 
+  Log(NEER) coefficient (b2):     0.797437 (p = 0.0000) ***
+  Policy Rate coefficient (b3):   0.000718 (p = 0.6001) 
+  VIX coefficient (b4):           0.000348 (p = 0.2111) 
+  Post-Crisis coefficient:        0.023290 (p = 0.0000) ***
+
+GROWTH MODEL (FE, ln_ipi):
+  Oil Shock coefficient (b1):     -0.000058 (p = 0.7682) 
+  Log(NEER) coefficient (b2):     -0.701102 (p = 0.0000) ***
+  Policy Rate coefficient (b3):   -0.004373 (p = 0.1074) 
+  VIX coefficient (b4):           -0.000367 (p = 0.5033) 
+  Post-Crisis coefficient:        0.005277 (p = 0.4494) 
+
+MODEL SELECTION:
+  Hausman test (CPI): chi2 = 0.440, p = 0.9942 => RE acceptable
+  Hausman test (IPI): chi2 = 32.491, p = 0.0000 => FE preferred
+  BP LM test (CPI):   chi2 = 1634.834, p = 0.0000 => RE > POLS
+  BP LM test (IPI):   chi2 = 153.618, p = 0.0000 => RE > POLS

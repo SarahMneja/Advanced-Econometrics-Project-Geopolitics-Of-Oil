@@ -1,0 +1,29 @@
+Oneway (individual) effect Within Model
+
+Call:
+plm(formula = ln_ipi ~ oil_pct_change + ln_neer + policy_rate + 
+    vix + post_crisis + oil_pct_change:post_crisis, data = pdata, 
+    model = "within")
+
+Balanced Panel: n = 3, T = 42, N = 126
+
+Residuals:
+    Min.  1st Qu.   Median  3rd Qu.     Max. 
+-0.04521 -0.01086 -0.00134  0.01294  0.05465 
+
+Coefficients:
+                              Estimate  Std. Error t-value  Pr(>|t|)    
+oil_pct_change             -9.0293e-05  2.6118e-04 -0.3457    0.7302    
+ln_neer                    -6.9820e-01  1.1793e-01 -5.9203 3.287e-08 ***
+policy_rate                -4.3898e-03  2.7081e-03 -1.6210    0.1077    
+vix                        -4.0543e-04  5.8538e-04 -0.6926    0.4899    
+post_crisis                 4.5490e-03  7.9720e-03  0.5706    0.5693    
+oil_pct_change:post_crisis  8.0672e-05  4.2654e-04  0.1891    0.8503    
+---
+Signif. codes:  0 ‘***’ 0.001 ‘**’ 0.01 ‘*’ 0.05 ‘.’ 0.1 ‘ ’ 1
+
+Total Sum of Squares:    0.056573
+Residual Sum of Squares: 0.039841
+R-Squared:      0.29576
+Adj. R-Squared: 0.24761
+F-statistic: 8.18948 on 6 and 117 DF, p-value: 2.1059e-07

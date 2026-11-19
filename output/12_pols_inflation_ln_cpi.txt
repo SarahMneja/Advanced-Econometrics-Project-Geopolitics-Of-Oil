@@ -1,0 +1,28 @@
+Pooling Model
+
+Call:
+plm(formula = ln_cpi ~ oil_pct_change + ln_neer + policy_rate + 
+    vix + post_crisis, data = pdata, model = "pooling")
+
+Balanced Panel: n = 3, T = 42, N = 126
+
+Residuals:
+   Min. 1st Qu.  Median 3rd Qu.    Max. 
+-0.0609 -0.0192 -0.0113  0.0263  0.0518 
+
+Coefficients:
+                  Estimate  Std. Error t-value  Pr(>|t|)    
+(Intercept)     4.0720e+00  6.0437e-01  6.7376 5.927e-10 ***
+oil_pct_change  5.0472e-05  3.0231e-04  0.1670  0.867686    
+ln_neer         1.6912e-01  1.2689e-01  1.3327  0.185146    
+policy_rate    -8.3139e-03  3.7892e-03 -2.1941  0.030156 *  
+vix            -4.4806e-04  8.4366e-04 -0.5311  0.596341    
+post_crisis     2.8781e-02  1.0920e-02  2.6355  0.009511 ** 
+---
+Signif. codes:  0 ‘***’ 0.001 ‘**’ 0.01 ‘*’ 0.05 ‘.’ 0.1 ‘ ’ 1
+
+Total Sum of Squares:    0.13164
+Residual Sum of Squares: 0.10062
+R-Squared:      0.23561
+Adj. R-Squared: 0.20377
+F-statistic: 7.39778 on 5 and 120 DF, p-value: 4.4484e-06

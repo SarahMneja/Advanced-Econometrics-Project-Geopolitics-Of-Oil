@@ -1,0 +1,78 @@
+
+--- Germany ---
+
+Call:
+lm(formula = ln_cpi ~ oil_pct_change + ln_neer + policy_rate + 
+    vix + post_crisis)
+
+Residuals:
+      Min        1Q    Median        3Q       Max 
+-0.016383 -0.004744 -0.002355  0.004683  0.025151 
+
+Coefficients:
+                 Estimate Std. Error t value Pr(>|t|)    
+(Intercept)     2.847e-01  4.696e-01   0.606  0.54822    
+oil_pct_change  6.311e-05  1.606e-04   0.393  0.69671    
+ln_neer         9.779e-01  9.870e-02   9.907 7.96e-12 ***
+policy_rate    -1.623e-03  2.304e-03  -0.705  0.48564    
+vix             2.739e-04  4.647e-04   0.589  0.55926    
+post_crisis     1.973e-02  5.869e-03   3.361  0.00185 ** 
+---
+Signif. codes:  0 ‘***’ 0.001 ‘**’ 0.01 ‘*’ 0.05 ‘.’ 0.1 ‘ ’ 1
+
+Residual standard error: 0.009027 on 36 degrees of freedom
+Multiple R-squared:  0.8918,	Adjusted R-squared:  0.8767 
+F-statistic: 59.32 on 5 and 36 DF,  p-value: 2.244e-16
+
+
+--- France ---
+
+Call:
+lm(formula = ln_cpi ~ oil_pct_change + ln_neer + policy_rate + 
+    vix + post_crisis)
+
+Residuals:
+      Min        1Q    Median        3Q       Max 
+-0.017203 -0.005213 -0.001486  0.006218  0.018634 
+
+Coefficients:
+                 Estimate Std. Error t value Pr(>|t|)    
+(Intercept)     0.6373136  0.4927800   1.293  0.20414    
+oil_pct_change -0.0001873  0.0001755  -1.067  0.29303    
+ln_neer         0.8888526  0.1040034   8.546 3.46e-10 ***
+policy_rate     0.0043022  0.0021683   1.984  0.05491 .  
+vix             0.0003681  0.0004442   0.829  0.41265    
+post_crisis     0.0198687  0.0057941   3.429  0.00153 ** 
+---
+Signif. codes:  0 ‘***’ 0.001 ‘**’ 0.01 ‘*’ 0.05 ‘.’ 0.1 ‘ ’ 1
+
+Residual standard error: 0.008614 on 36 degrees of freedom
+Multiple R-squared:  0.8077,	Adjusted R-squared:  0.781 
+F-statistic: 30.23 on 5 and 36 DF,  p-value: 6.094e-12
+
+
+--- Italy ---
+
+Call:
+lm(formula = ln_cpi ~ oil_pct_change + ln_neer + policy_rate + 
+    vix + post_crisis)
+
+Residuals:
+       Min         1Q     Median         3Q        Max 
+-0.0152410 -0.0053651  0.0009317  0.0058712  0.0118904 
+
+Coefficients:
+                 Estimate Std. Error t value Pr(>|t|)    
+(Intercept)     2.1977972  0.3745201   5.868 1.04e-06 ***
+oil_pct_change -0.0002288  0.0001334  -1.716   0.0948 .  
+ln_neer         0.5537678  0.0782218   7.079 2.58e-08 ***
+policy_rate    -0.0006369  0.0019447  -0.327   0.7452    
+vix             0.0004189  0.0003859   1.086   0.2849    
+post_crisis     0.0299310  0.0048919   6.119 4.83e-07 ***
+---
+Signif. codes:  0 ‘***’ 0.001 ‘**’ 0.01 ‘*’ 0.05 ‘.’ 0.1 ‘ ’ 1
+
+Residual standard error: 0.0075 on 36 degrees of freedom
+Multiple R-squared:  0.8627,	Adjusted R-squared:  0.8436 
+F-statistic: 45.23 on 5 and 36 DF,  p-value: 1.557e-14
+

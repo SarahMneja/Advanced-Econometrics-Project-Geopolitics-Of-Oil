@@ -1,0 +1,125 @@
+=================================================================
+DIAGNOSTIC TEST RESULTS
+=================================================================
+
+--- Hausman Test (FE vs RE) ---
+
+Inflation (ln_cpi):
+
+	Hausman Test
+
+data:  ln_cpi ~ oil_pct_change + ln_neer + policy_rate + vix + post_crisis
+chisq = 0.43962, df = 5, p-value = 0.9942
+alternative hypothesis: one model is inconsistent
+
+  => FAIL TO REJECT H0: RE acceptable
+
+Growth (ln_ipi):
+
+	Hausman Test
+
+data:  ln_ipi ~ oil_pct_change + ln_neer + policy_rate + vix + post_crisis
+chisq = 32.491, df = 5, p-value = 4.748e-06
+alternative hypothesis: one model is inconsistent
+
+  => REJECTED H0: FE preferred
+
+--- Breusch-Pagan LM Test (POLS vs RE) ---
+
+Inflation (ln_cpi):
+
+	Lagrange Multiplier Test - (Breusch-Pagan)
+
+data:  ln_cpi ~ oil_pct_change + ln_neer + policy_rate + vix + post_crisis
+chisq = 1634.8, df = 1, p-value < 2.2e-16
+alternative hypothesis: significant effects
+
+  => RE preferred over POLS
+
+Growth (ln_ipi):
+
+	Lagrange Multiplier Test - (Breusch-Pagan)
+
+data:  ln_ipi ~ oil_pct_change + ln_neer + policy_rate + vix + post_crisis
+chisq = 153.62, df = 1, p-value < 2.2e-16
+alternative hypothesis: significant effects
+
+  => RE preferred over POLS
+
+--- Serial Correlation (Wooldridge/DW) ---
+
+FE Inflation:
+
+	Durbin-Watson test for serial correlation in panel models
+
+data:  ln_cpi ~ oil_pct_change + ln_neer + policy_rate + vix + post_crisis
+DW = 0.55733, p-value < 2.2e-16
+alternative hypothesis: serial correlation in idiosyncratic errors
+
+
+FE Growth:
+
+	Durbin-Watson test for serial correlation in panel models
+
+data:  ln_ipi ~ oil_pct_change + ln_neer + policy_rate + vix + post_crisis
+DW = 0.51742, p-value < 2.2e-16
+alternative hypothesis: serial correlation in idiosyncratic errors
+
+
+--- Robust Standard Errors ---
+
+FE Inflation - Arellano robust SE:
+
+t test of coefficients:
+
+                  Estimate  Std. Error t value  Pr(>|t|)    
+oil_pct_change -1.2759e-04  1.1126e-04 -1.1468    0.2538    
+ln_neer         7.9744e-01  1.2896e-01  6.1836 9.289e-09 ***
+policy_rate     7.1783e-04  1.6065e-03  0.4468    0.6558    
+vix             3.4788e-04  2.7427e-05 12.6838 < 2.2e-16 ***
+post_crisis     2.3290e-02  3.1648e-03  7.3592 2.692e-11 ***
+---
+Signif. codes:  0 ‘***’ 0.001 ‘**’ 0.01 ‘*’ 0.05 ‘.’ 0.1 ‘ ’ 1
+
+
+FE Growth - Arellano robust SE:
+
+t test of coefficients:
+
+                  Estimate  Std. Error t value  Pr(>|t|)    
+oil_pct_change -5.7613e-05  6.5153e-05 -0.8843  0.378349    
+ln_neer        -7.0110e-01  3.4121e-01 -2.0547  0.042112 *  
+policy_rate    -4.3735e-03  1.3245e-03 -3.3019  0.001271 ** 
+vix            -3.6673e-04  1.6013e-04 -2.2902  0.023784 *  
+post_crisis     5.2769e-03  6.5455e-04  8.0619 6.929e-13 ***
+---
+Signif. codes:  0 ‘***’ 0.001 ‘**’ 0.01 ‘*’ 0.05 ‘.’ 0.1 ‘ ’ 1
+
+
+FE Inflation - Driscoll-Kraay SE:
+
+t test of coefficients:
+
+                  Estimate  Std. Error t value  Pr(>|t|)    
+oil_pct_change -0.00012759  0.00013323 -0.9577    0.3402    
+ln_neer         0.79743701  0.14114375  5.6498 1.132e-07 ***
+policy_rate     0.00071783  0.00282942  0.2537    0.8002    
+vix             0.00034788  0.00024797  1.4029    0.1633    
+post_crisis     0.02329038  0.00312740  7.4472 1.712e-11 ***
+---
+Signif. codes:  0 ‘***’ 0.001 ‘**’ 0.01 ‘*’ 0.05 ‘.’ 0.1 ‘ ’ 1
+
+
+FE Growth - Driscoll-Kraay SE:
+
+t test of coefficients:
+
+                  Estimate  Std. Error t value  Pr(>|t|)    
+oil_pct_change -5.7613e-05  1.9204e-04 -0.3000 0.7647039    
+ln_neer        -7.0110e-01  1.9729e-01 -3.5537 0.0005473 ***
+policy_rate    -4.3735e-03  3.7996e-03 -1.1510 0.2520466    
+vix            -3.6673e-04  4.6131e-04 -0.7950 0.4282261    
+post_crisis     5.2769e-03  4.7390e-03  1.1135 0.2677532    
+---
+Signif. codes:  0 ‘***’ 0.001 ‘**’ 0.01 ‘*’ 0.05 ‘.’ 0.1 ‘ ’ 1
+

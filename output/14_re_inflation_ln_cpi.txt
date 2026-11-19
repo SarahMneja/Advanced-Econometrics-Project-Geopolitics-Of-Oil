@@ -1,0 +1,35 @@
+Oneway (individual) effect Random Effect Model 
+   (Wallace-Hussain's transformation)
+
+Call:
+plm(formula = ln_cpi ~ oil_pct_change + ln_neer + policy_rate + 
+    vix + post_crisis, data = pdata, model = "random", random.method = "walhus")
+
+Balanced Panel: n = 3, T = 42, N = 126
+
+Effects:
+                    var   std.dev share
+idiosyncratic 0.0001633 0.0127773 0.204
+individual    0.0006353 0.0252056 0.796
+theta: 0.922
+
+Residuals:
+    Min.  1st Qu.   Median  3rd Qu.     Max. 
+-0.02504 -0.00672  0.00026  0.00706  0.02495 
+
+Coefficients:
+                  Estimate  Std. Error z-value  Pr(>|z|)    
+(Intercept)     1.11936297  0.28677480  3.9033 9.490e-05 ***
+oil_pct_change -0.00012481  0.00010112 -1.2343    0.2171    
+ln_neer         0.78950280  0.06018558 13.1178 < 2.2e-16 ***
+policy_rate     0.00060336  0.00139602  0.4322    0.6656    
+vix             0.00033776  0.00028317  1.1928    0.2329    
+post_crisis     0.02335047  0.00360527  6.4768 9.371e-11 ***
+---
+Signif. codes:  0 ‘***’ 0.001 ‘**’ 0.01 ‘*’ 0.05 ‘.’ 0.1 ‘ ’ 1
+
+Total Sum of Squares:    0.056196
+Residual Sum of Squares: 0.010898
+R-Squared:      0.80607
+Adj. R-Squared: 0.79799
+Chisq: 498.78 on 5 DF, p-value: < 2.22e-16
